@@ -27,6 +27,9 @@ RUN apt-get update && apt-get install -y \
             zip \
             gd \
             gmp \
+            mysqli \
+            pdo \
+            pdo_mysql \
         && pecl install \
             amqp \
             memcached \
@@ -34,6 +37,7 @@ RUN apt-get update && apt-get install -y \
             amqp \
             memcached \
             gd \
+            pdo_mysql \
         && apt-get purge -y \
 		    libzip-dev \
 		    libjpeg-dev 
