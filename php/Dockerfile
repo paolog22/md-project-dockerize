@@ -19,7 +19,11 @@ RUN apt-get update && apt-get install -y \
             libgmp-dev \
             libfreetype6-dev \
             libjpeg62-turbo-dev \
-            libpng-dev \
+            libpng-dev \  
+            zip \
+            libicu-dev \ 
+        && docker-php-ext-configure intl \
+        && docker-php-ext-install intl \
         && docker-php-ext-configure gd --with-freetype --with-jpeg \
         && docker-php-ext-install -j$(nproc) \
             bcmath \
@@ -30,7 +34,8 @@ RUN apt-get update && apt-get install -y \
             mysqli \
             pdo \
             pdo_mysql \
-        && pecl install \
+            intl \ 
+        && pecl install \ 
             amqp \
             memcached \
         && docker-php-ext-enable \
